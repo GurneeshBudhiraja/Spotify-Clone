@@ -8,6 +8,7 @@
   <link rel="shortcut icon" href="spotify-favicon.svg" type="image/x-icon">
   <!-- google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css" integrity="sha512-dUOcWaHA4sUKJgO7lxAQ0ugZiWjiDraYNeNJeRKGOIpEq4vroj1DpKcS3jP0K4Js4v6bXk31AAxAxaYt3Oi9xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -33,7 +34,69 @@
             <img src="library.svg" alt="Your Library">
             <h4>Your Library</h4>
           </div>
-          <div class="all-songs"></div>
+        </div>
+        <div class="all-songs">
+          <div class="song-card">
+            <div class="song-image">
+              <img src="https://i.scdn.co/image/ab67706f000000028aa213d23c60645e2649a350" alt="Cover Picture">
+            </div>
+            <div class="song-description">
+              <div class="song-title">lorem5</div>
+              <div class="song-singer">Karan Aujla</div>
+            </div>
+            <div class="song-play"><i class="ri-play-circle-line"></i></div>
+          </div>
+          <div class="song-card">
+            <div class="song-image">
+              <img src="https://cdn.jattpendu.com/thumbmed/49140091.jpg" alt="Cover Picture">
+            </div>
+            <div class="song-description">
+              <div class="song-title">lorem5</div>
+              <div class="song-singer">Karan Aujla</div>
+            </div>
+            <div class="song-play"><i class="ri-play-circle-line"></i></div>
+          </div>
+          <div class="song-card">
+            <div class="song-image">
+              <img src="https://cdn.jattpendu.com/thumbmed/49367778.jpg" alt="Cover Picture">
+            </div>
+            <div class="song-description">
+              <div class="song-title">lorem5</div>
+              <div class="song-singer">Karan Aujla</div>
+            </div>
+            <div class="song-play"><i class="ri-play-circle-line"></i></div>
+          </div>
+          
+          <div class="song-card">
+            <div class="song-image">
+              <img src="https://cdn.jattpendu.com/thumbmed/48820844.jpg" alt="Cover Picture">
+            </div>
+            <div class="song-description">
+              <div class="song-title">lorem5</div>
+              <div class="song-singer">Karan Aujla</div>
+            </div>
+            <div class="song-play"><i class="ri-play-circle-line"></i></div>
+          </div>
+          <div class="song-card">
+            <div class="song-image">
+              <img src="https://cdn.jattpendu.com/thumbmed/48964995.jpg" alt="Cover Picture">
+            </div>
+            <div class="song-description">
+              <div class="song-title">lorem5</div>
+              <div class="song-singer">Karan Aujla</div>
+            </div>
+            <div class="song-play"><i class="ri-play-circle-line"></i></div>
+          </div>
+          <div class="song-card">
+            <div class="song-image">
+              <img src="https://cdn.jattpendu.com/thumbmed/49157268.jpg" alt="Cover Picture">
+            </div>
+            <div class="song-description">
+              <div class="song-title">lorem5</div>
+              <div class="song-singer">Karan Aujla</div>
+            </div>
+            <div class="song-play"><i class="ri-play-circle-line"></i></div>
+          </div>
         </div>
         <div class="bottom-links">
           <a href="https://www.spotify.com/ca-en/legal/" class="bottom-link">Legal</a>
@@ -69,8 +132,8 @@
             <img src="play-card.svg" alt="Play" class="play-card">
           </div>
           <div class="card">
-            <img src="https://i.scdn.co/image/ab67706f000000028aa213d23c60645e2649a350" alt="Song Poster">
-            <h4>lofi beats</h4>
+            <img src="https://cdn.jattpendu.com/thumbmed/49140091.jpg" alt="Song Poster">
+            <h4>Sab Moh Maaya Hai (Title Track)</h4>
             <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, blanditiis?</h5>
             <img src="play-card.svg" alt="Play" class="play-card">
           </div>
@@ -81,15 +144,23 @@
           <div class="bar-line"></div>
           <div class="bar-circle"></div>
         </div>
+        <div class="duration">
+          <h6>00:00</h6>
+          <h6>03:06</h6>
+        </div>
         <div class="player-buttons">
           <img src="prev-song.svg" alt="Previous Song" class="prev-btn">
           <img src="play-song.svg" alt="Play Song" class="play-btn">
           <img src="pause-song.svg" alt="Pause Song" class="pause-btn">
           <img src="next-song.svg" alt="Next Song" class="next-btn">
+          <div class="volume" title="volume">
+            <i class="ri-volume-up-line volume-icon"></i>
+            <input type="range" min="0" max="100" value="80" class="volume-bar">
+          </div>
         </div>
       </div>
     </div>
-      
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

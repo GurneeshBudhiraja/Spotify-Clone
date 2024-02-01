@@ -18,10 +18,8 @@
   background-color: #222; /* Dark color for the track */
 }
 
-
 .main{
   display: flex;
-  /* padding: 7px; */
   height: 100vh;
   background-color: black;
   overflow-y: scroll;
@@ -72,7 +70,6 @@
   width: 24px;
 }
 .search{
-  /* margin-bottom: 15px; */
   filter: invert(0.5);
 }
 .search img{
@@ -86,7 +83,6 @@
   padding: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .bottom-first{
   filter: invert(0.5);
@@ -100,13 +96,70 @@
 .your-lib>img{
   width: 24px;
 }
-.bottom-links{
+.all-songs{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 50vh;
+  overflow:auto;
+}
+.song-card{
+  width: 95%;
+  position: relative;
+  height: fit-content;
+  padding: 0.5rem;
+  background-color: #282828;
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+.song-card:hover{
+  background-color: #1a1a1a;
+}
+.song-image>img{
+  height: 3.5rem;
+  border-radius: 50%;
+}
+.song-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+  gap: 0.15rem;
+}
+.song-title{
+  max-width: 15rem;
+  color: white;
+  letter-spacing: 0.1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.song-singer{
+  font-size: 0.7rem;
+  color: lightgray;
+}
+.song-play{
+  position: absolute;
+  right: 38px;
+  color: lightgreen;
+  font-size: 2.5rem;
+}
+.bottom-links{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   font-size: 10px;
-  justify-content: space-evenly;
+  position: absolute;
+  bottom: 25px;
 }
 .bottom-links>a{
+  font-size: 0.7rem;
   text-decoration: none;
   color: gray;
 }
@@ -189,6 +242,9 @@
 }
 .card>h4{
   color: white;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .card>h5{
   color: rgb(180, 174, 174);
@@ -234,9 +290,19 @@
   bottom: -6px;
   left: 1px;
 }
-
-.player-buttons{
+.duration{
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: lightgrey;
+}
+.duration>h6{
+  font-size: 0.75rem;
+}
+.player-buttons{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
   filter: invert(1);
   justify-content: center;
   align-items: center;
@@ -247,4 +313,39 @@
 }
 .pause-btn{
   display: none;
+}
+.volume{
+  position: absolute;
+  right: 134px;
+  top:3px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.volume-icon{
+  font-size: 1.25rem;
+}
+input[type=range]{
+  filter: invert(1);
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  max-width: 100%;
+  height: 0.25rem;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 10px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  cursor: pointer;
+  -webkit-appearance: none;
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: -4px;
 }
