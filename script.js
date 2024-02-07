@@ -2,6 +2,8 @@ let currentAudio = null;
 let isPLaying = null;
 // to keep track of the last clicked button
 let lastClickedButton = null;
+let volumeControl = document.querySelector(".volume-bar");
+const volumeIcon = document.querySelector(".volume-icon");
 
 // for your library section
 document.querySelector('.all-songs').addEventListener('click', function (event) {
@@ -67,6 +69,30 @@ document.querySelector(".cards").addEventListener("click", function (evt) {
   }
 });
 
+// volume control
+volumeControl.addEventListener('input', function () {
+  if (currentAudio) {    
+    currentAudio.volume = volumeControl.value;
+    // for changing this
+    if(currentAudio.volume===0){
+      changeVolumeIcon(true);
+    } else{
+      changeVolumeIcon(false);
+    }
+  }
+});
+
+// for changing the volume buttom
+function changeVolumeIcon(bool) {
+  if(bool) {
+    volumeIcon.classList.remove("ri-volume-up-line");
+    volumeIcon.classList.add("ri-volume-mute-line");
+    return;
+  }
+  // if !bool
+  volumeIcon.classList.add("ri-volume-up-line");
+  volumeIcon.classList.remove("ri-volume-mute-line");
+}
 
 // play the song
 function songPlay(currentAudio) {
