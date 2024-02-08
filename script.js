@@ -4,7 +4,11 @@ let isPLaying = null;
 let lastClickedButton = null;
 let volumeControl = document.querySelector(".volume-bar");
 const volumeIcon = document.querySelector(".volume-icon");
-
+const playerPlay = document.querySelector(".player-play");
+let globalButton = null;
+let playTime=document.querySelector(".play-time");
+let totalDuration=document.querySelector(".total-duration");
+console.log(playTime,totalDuration);
 // for your library section
 document.querySelector('.all-songs').addEventListener('click', function (event) {
   // Check if the clicked element is a child of song-card
@@ -12,6 +16,7 @@ document.querySelector('.all-songs').addEventListener('click', function (event) 
   if (songCard) {
     // for changing the icons on the songs
     let button = songCard.querySelector(".play-pause");
+    globalButton=button;
     const songname = songCard.dataset.songname;
     // Checking if there is any audio playing
     if (currentAudio) {
@@ -98,6 +103,20 @@ function changeVolumeIcon(bool) {
 function songPlay(currentAudio) {
   currentAudio.addEventListener("canplaythrough", function () {
     currentAudio.play();
+    // totalDuration.innerText=(currentAudio.duration);
+    //return the duration in seconds
+    let totalDurationSec = Math.trunc(currentAudio.duration); 
+    let totalDurationMin=null;
+    // converting the seconds into minutes
+    if(totalDurationSec>=60) {
+      while (totalDurationSec>=60) {
+        totalDurationMin+=1;
+        totalDurationSec-=60;
+      }
+    }
+    let formattedSeconds = totalDurationSec<10?"0"+totalDurationSec:totalDurationSec==0?"00":totalDurationSec;
+    let formattedTime = totalDurationMin+":"+formattedSeconds;
+    totalDuration.textContent=formattedTime;
     console.log("audio playing");
   });
   return;
@@ -107,10 +126,35 @@ function songPlay(currentAudio) {
 function toggleButton(button, isPLaying) {
   if (isPLaying) {
     button.classList.remove("ri-play-circle-line");
-    button.classList.add("ri-pause-circle-line")
+    button.classList.add("ri-pause-circle-line");
+    playerPlay.classList.add("ri-pause-mini-line");
+    playerPlay.classList.remove("ri-play-mini-line");
+    
   } else {
     button.classList.remove("ri-pause-circle-line");
     button.classList.add("ri-play-circle-line");
+    playerPlay.classList.add("ri-play-mini-line");
+    playerPlay.classList.remove("ri-pause-mini-line");
   }
   return;
 }
+playerPlay.addEventListener("click",function(){
+  if(currentAudio && !currentAudio.paused){
+    currentAudio.pause();
+    toggleButton(globalButton,false);
+  } else if(currentAudio && currentAudio.paused){
+    currentAudio.play();
+    toggleButton(globalButton,true);
+  }
+})
+
+// toggle volume bar visibility for max-width:700px
+document.addEventListener("DOMContentLoaded", function() {
+  // Function to toggle volume bar visibility
+  function toggleVolumeBar() {
+      volumeControl.style.display = (volumeControl.style.display === "block") ? "none" : "block";
+  }
+  if (window.innerWidth <= 1200) { 
+      volumeIcon.addEventListener("click", toggleVolumeBar);
+  }
+});
